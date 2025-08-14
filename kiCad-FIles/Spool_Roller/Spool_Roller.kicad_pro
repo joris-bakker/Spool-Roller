@@ -486,7 +486,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../Downloads/gerberfiles_aufroller/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
