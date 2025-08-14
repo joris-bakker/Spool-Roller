@@ -2,6 +2,10 @@
 
 void main_menu(void){
   
+  digitalWrite(ENABLE_GUIDE,HIGH);
+  digitalWrite(ENABLE_ROLL,HIGH);
+
+
   display.clearDisplay();
   display.setCursor(30,2);
   display.drawLine(30,11,90,11,SH110X_WHITE);
@@ -11,6 +15,8 @@ void main_menu(void){
   firstCall = true;
   firstCall_manual = true;
   firstCall_auto = true;
+  
+
 
           
   display.setCursor(60, 30);

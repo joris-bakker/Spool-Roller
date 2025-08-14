@@ -39,13 +39,16 @@ void manual_motor(int speed, float spulenbreite, float drahtbreite)
 			{
 				rotaryEncoder.setBoundaries( 0, 100, false );
 				rotaryEncoder.resetEncoderValue();
-				endposition = calc_endposition(spulenbreite);
+				endposition = calc_endposition(spulenbreite-drahtbreite);
+				Serial.println(endposition);
  			currentPos = 0;
+			
 			firstCall_manual = false;
 			};
      // Roll-Motor → kontinuierlich
   roll.setSpeed(speed);
   roll.runSpeed();
+
 
   // Guide-Motor → pendeln
   guide.setMaxSpeed(calc_speed_guide(speed, drahtbreite));  // aktuelle Geschwindigkeit setzen
@@ -74,8 +77,9 @@ void auto_motor(int speed, float spulenbreite, float drahtbreite, int turns)
 			guide.setAcceleration(50000);	
 			
 			guide.setMaxSpeed(calc_speed_guide(speed, drahtbreite));
-			endposition = calc_endposition(spulenbreite);
-			roll.setMaxSpeed(1000);
+			endposition = calc_endposition(spulenbreite-drahtbreite);
+			Serial.println(endposition);
+			roll.setMaxSpeed(speed);
 			roll.moveTo(turns*200*16);
  			currentPos = 0;
 			firstCall_auto = false;

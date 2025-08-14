@@ -1,16 +1,11 @@
 void manu_menu()
 {
   speed = currentPos;
-          /*
+  if (firstCall_manual) {
           display.clearDisplay();
-          speed = currentPos;
-          display.setCursor(0,0);
-          display.print("Speed:");
-          display.setCursor(80,0);
           
-          display.print(speed); /////// Wickeln Wert
-
-
+          display.setCursor(30,0);
+          display.print("Manueller Modus");
 
           display.setCursor(0, 15);
           display.print("Spulenbreite");
@@ -23,17 +18,16 @@ void manu_menu()
           display.setCursor(80,30);
           display.print(drahtbreite);
           display.print(" mm");
-          
-
-
-
 
           display.setCursor(5,50);
           display.drawRect(0,45,40,17,SH110X_WHITE);
           display.print("STOPP");
           display.display();
           
-*/
+
+
+        };
+
           manual_motor(speed*100, spulenbreite, drahtbreite);
 
           if(sw == 1){

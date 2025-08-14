@@ -1,7 +1,10 @@
 void menu_zeroing()
 {
 
-		 
+  digitalWrite(ENABLE_GUIDE,LOW);
+  digitalWrite(ENABLE_ROLL,HIGH);
+
+
 		if (firstCall)
 			{
         display.clearDisplay();
@@ -74,7 +77,12 @@ if(sw == 1){
           display.setCursor(5,45);
           display.drawRect(0,40,40,17,SH110X_WHITE);
           display.print("STOPP");
+
+          display.setCursor(45,45);
+          display.print("Motor runs!");
           display.display();
+          digitalWrite(ENABLE_GUIDE,LOW);
+          digitalWrite(ENABLE_ROLL,LOW);
           };
 
           if(manuell == 1)
@@ -82,6 +90,8 @@ if(sw == 1){
             a=5;
             rotaryEncoder.setBoundaries(-100,100, false );
             rotaryEncoder.setEncoderValue(0);
+            digitalWrite(ENABLE_GUIDE,LOW);
+            digitalWrite(ENABLE_ROLL,LOW);
             currentPos=0;
           };
 

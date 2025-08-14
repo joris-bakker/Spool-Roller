@@ -25,15 +25,21 @@ SCK= D22
 
 /// MOTOR SACHEN ///////////////////////////////////////////////////////////////
 #define INTERFACETYPE 1 // Muss festgelegt werden
-#define ROLL_STEP 16
-#define ROLL_DIR 17
+#define ROLL_STEP 17
+#define ROLL_DIR 16
+#define ENABLE_ROLL 32
+#define ENABLE_GUIDE 13
 
 
 bool directionToEnd = true;
 long endposition = 20000;
+// Zeitvariablen
+unsigned long previousMillis = 0;
+const unsigned long interval = 1000;  // 1000 Millisekunden
+unsigned long currentMillis;
 
-#define GUIDE_STEP 18
-#define GUIDE_DIR 19
+#define GUIDE_STEP 19
+#define GUIDE_DIR 18
 
 AccelStepper roll(INTERFACETYPE,ROLL_STEP, ROLL_DIR);
 AccelStepper guide(INTERFACETYPE,GUIDE_STEP, GUIDE_DIR);
@@ -207,12 +213,17 @@ guide.setAcceleration(50000);
 roll.setAcceleration(50000);
 /////////////////////////////////////////////////////////////////////
  
+ pinMode(ENABLE_ROLL, OUTPUT); // FÜR GUIDE --> LOW = AN
+ pinMode(ENABLE_GUIDE, OUTPUT); // FÜR ROLL
+
+ digitalWrite(ENABLE_ROLL,HIGH);
+ digitalWrite(ENABLE_GUIDE,HIGH);
 }
 
 
 void loop() {
 
-
+currentMillis = millis();
 reading = digitalRead(pin34);
 
   // Hat sich der Zustand geändert?
@@ -295,6 +306,17 @@ switch(a) {
   case 8: // AUTOMODUS LÄUFT!!!
 
           auto_motor(3000, spulenbreite, drahtbreite, wickelmenge);
+          
+          if(roll.distanceToGo()==0)
+          {
+              display.clearDisplay();
+              display.setCursor(10,22);
+              display.print("Menu ist Fertig!");
+              display.setCursor(10,43);
+              display.print("Press to go Menu!");
+              display.display();
+          };
+          
           /// Hier Läuft der Motor!!
           // So klein  wie möglich gehalten werden für berechnungszeiten von Motor
 
@@ -304,6 +326,10 @@ switch(a) {
             a = 1;
             roll.stop();
             guide.stop();
+          rotaryEncoder.setBoundaries(0,10, false );
+          rotaryEncoder.setEncoderValue(0);
+          currentPos=0;
+
           };
           break;
 
