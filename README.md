@@ -4,6 +4,7 @@
 
 
 All designs, CAD-Files and mechanical parts and were created by Josua T.
+
 Software and PCB was made by Joris Bakker
 
 # Device Function Description
