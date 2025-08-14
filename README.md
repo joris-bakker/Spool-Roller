@@ -1,9 +1,10 @@
-# Spool-Roller
+# Spool-Roller (Made by Josua T. and Joris Bakker)
 
 <img src="https://github.com/user-attachments/assets/d2e98978-cee0-49f3-8675-edde1e05f2f9" alt="WhatsApp Image" width="300">
 
+
 All designs, CAD-Files and mechanical parts and were created by Josua T.
-Software and PCB was made by joris bakker
+Software and PCB was made by Joris Bakker
 
 # Device Function Description
 
