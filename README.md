@@ -1,4 +1,9 @@
 # Spool-Roller
+
+<img src="https://github.com/user-attachments/assets/d2e98978-cee0-49f3-8675-edde1e05f2f9" alt="WhatsApp Image" width="300">
+
+
+
 # Device Function Description
 
 The device is designed for winding various materials, such as wire, filament, or cable.  
