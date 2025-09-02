@@ -2,6 +2,9 @@
 
 <img src="https://github.com/user-attachments/assets/d2e98978-cee0-49f3-8675-edde1e05f2f9" alt="WhatsApp Image" width="300">
 
+- ToDO: Nach Manual-Menu Stop, wenn man wieder zurückgeht, den Screen aktualisieren!
+- Gehäuse für Platine
+- 3D-Files hochladen 
 
 All designs, CAD-Files and mechanical parts and were created by Josua T.
 
